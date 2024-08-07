@@ -116,6 +116,13 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  "made by mamad.alj",
+                  style: TextStyle(fontSize: 20),
+                )
               ],
             ),
             SizedBox(height: size.height * 0.05), // فاصله از پایین
