@@ -1,101 +1,124 @@
 import 'package:flutter/material.dart';
+import 'package:quickalert/quickalert.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:session_next/session_next.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var session = SessionNext();
+
+    final _myBox = Hive.box("my Box");
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.blue,
       body: Container(
-        decoration: const ShapeDecoration(
-            shape: StadiumBorder(),
-            gradient: LinearGradient(colors: [Colors.blue, Colors.deepPurple])),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 100,
-              ),
-              SizedBox(
-                height: 200,
-                width: 200,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(300),
-                  child: Image.asset(
-                    "assets/download (1).png",
-                    width: 300,
-                  ),
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(colors: [Colors.blue, Colors.deepPurple]),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SizedBox(height: size.height * 0.05), // فاصله از بالا
+            SizedBox(
+              height: size.width * 0.4,
+              width: size.width * 0.4,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(size.width * 0.2),
+                child: Image.asset(
+                  "assets/download (1).png",
+                  fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(
-                height: 60,
+            ),
+            SizedBox(height: size.height * 0.05), // فاصله بین تصویر و متن
+            Text(
+              "Welcome To Quiz Game",
+              style: TextStyle(
+                fontSize: size.width * 0.08,
+                color: Colors.white,
               ),
-              Container(
-                child: Text(
-                  "Welcom To Quize Game",
-                  style: TextStyle(fontSize: 30, color: Colors.white),
-                ),
-              ),
-              SizedBox(
-                height: 60,
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(300),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: size.height * 0.05), // فاصله بین متن و تصویر دوم
+            SizedBox(
+              height: size.width * 0.4,
+              width: size.width * 0.4,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(size.width * 0.2),
                 child: Image.asset(
                   "assets/download.png",
-                  width: 300,
+                  fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(
-                height: 50,
-              ),
-              Container(
-                width: 300,
-                height: 70,
-                decoration: ShapeDecoration(
-                    shape: StadiumBorder(side: BorderSide(color: Colors.black)),
-                    gradient:
-                        LinearGradient(colors: [Colors.black, Colors.white])),
-                child: MaterialButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Play",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+            ),
+            SizedBox(
+                height: size.height * 0.05), // فاصله بین تصویر دوم و دکمه‌ها
+            Column(
+              children: [
+                Container(
+                  width: size.width * 0.8,
+                  height: size.height * 0.08,
+                  decoration: ShapeDecoration(
+                    shape: const StadiumBorder(
+                      side: BorderSide(color: Colors.black),
+                    ),
+                    gradient: const LinearGradient(
+                      colors: [Colors.black, Colors.white],
+                    ),
+                  ),
+                  child: MaterialButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/quiz');
+                    },
+                    child: Text(
+                      "Play",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: size.width * 0.06,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: 300,
-                height: 70,
-                child: Container(
+                SizedBox(
+                  height: size.height * 0.02, // فاصله بین دکمه‌ها
+                ),
+                Container(
+                  width: size.width * 0.8,
+                  height: size.height * 0.08,
                   decoration: ShapeDecoration(
-                      shape:
-                          StadiumBorder(side: BorderSide(color: Colors.black)),
-                      gradient: LinearGradient(colors: [
-                        const Color.fromARGB(255, 217, 0, 255),
-                        Colors.white
-                      ])),
+                    shape: const StadiumBorder(
+                      side: BorderSide(color: Colors.black),
+                    ),
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 217, 0, 255),
+                        Color.fromARGB(255, 242, 240, 240),
+                      ],
+                    ),
+                  ),
                   child: MaterialButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/help');
                     },
                     child: Text(
-                      "how to play",
+                      "How to play",
                       style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: size.width * 0.06,
+                      ),
                     ),
                   ),
                 ),
-              )
-            ],
-          ),
+              ],
+            ),
+            SizedBox(height: size.height * 0.05), // فاصله از پایین
+          ],
         ),
       ),
     );
