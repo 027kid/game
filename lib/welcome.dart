@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers, unused_local_variable, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:session_next/session_next.dart';
@@ -9,6 +11,7 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var session = SessionNext();
 
+    // ignore: unused_local_variable
     final _myBox = Hive.box("my Box");
     final size = MediaQuery.of(context).size;
 
