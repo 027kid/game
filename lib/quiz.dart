@@ -1,8 +1,7 @@
+// ignore_for_file: sort_child_properties_last, deprecated_member_use, prefer_typing_uninitialized_variables
+
 import 'dart:math';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'dart:convert';
-import 'falljune.dart';
-import 'main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data.dart';
 

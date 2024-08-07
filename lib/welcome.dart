@@ -1,5 +1,6 @@
+// ignore_for_file: unused_local_variable, no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
-import 'package:quickalert/quickalert.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:session_next/session_next.dart';
 
@@ -63,11 +64,11 @@ class WelcomePage extends StatelessWidget {
                 Container(
                   width: size.width * 0.8,
                   height: size.height * 0.08,
-                  decoration: ShapeDecoration(
-                    shape: const StadiumBorder(
+                  decoration: const ShapeDecoration(
+                    shape: StadiumBorder(
                       side: BorderSide(color: Colors.black),
                     ),
-                    gradient: const LinearGradient(
+                    gradient: LinearGradient(
                       colors: [Colors.black, Colors.white],
                     ),
                   ),
@@ -90,11 +91,11 @@ class WelcomePage extends StatelessWidget {
                 Container(
                   width: size.width * 0.8,
                   height: size.height * 0.08,
-                  decoration: ShapeDecoration(
-                    shape: const StadiumBorder(
+                  decoration: const ShapeDecoration(
+                    shape: StadiumBorder(
                       side: BorderSide(color: Colors.black),
                     ),
-                    gradient: const LinearGradient(
+                    gradient: LinearGradient(
                       colors: [
                         Color.fromARGB(255, 217, 0, 255),
                         Color.fromARGB(255, 242, 240, 240),

@@ -1,5 +1,6 @@
+// ignore_for_file: camel_case_types, prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
-import 'quiz.dart';
 
 class tabrikPage extends StatefulWidget {
   const tabrikPage({super.key});
@@ -23,7 +24,7 @@ class _tabrikPageState extends State<tabrikPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30)),
               child: Container(
@@ -32,33 +33,33 @@ class _tabrikPageState extends State<tabrikPage> {
                 color: const Color.fromARGB(255, 23, 186, 29),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 70,
                     ),
-                    Text(
+                    const Text(
                       "Congratulations!",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 35),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       "You completed the questions :) ",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Container(child: Image.asset("assets/ax.png"))),
-                    SizedBox(
+                        child: Image.asset("assets/ax.png")),
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       "You Win!",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
@@ -76,7 +77,7 @@ class _tabrikPageState extends State<tabrikPage> {
                   Container(
                     width: 300,
                     height: 70,
-                    decoration: ShapeDecoration(
+                    decoration: const ShapeDecoration(
                         shape: StadiumBorder(
                             side: BorderSide(color: Colors.black)),
                         gradient: LinearGradient(
@@ -85,14 +86,14 @@ class _tabrikPageState extends State<tabrikPage> {
                       onPressed: () {
                         Navigator.pushNamed(context, '/home');
                       },
-                      child: Text(
+                      child: const Text(
                         "Play Again",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 30),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 60,
                   ),
                 ],
@@ -102,7 +103,7 @@ class _tabrikPageState extends State<tabrikPage> {
         )),
       );
     } else {
-      return Scaffold();
+      return const Scaffold();
     }
   }
 }
